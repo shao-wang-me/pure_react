@@ -1,0 +1,35 @@
+<!DOCTYPE html> <!-- 这个表示这是一个HTML5文档 -->
+<!-- 参见https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5/Introduction_to_HTML5 -->
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8"> <!-- 要紧跟着head -->
+  <title>纯React</title>
+</head>
+
+<body>
+  <span>直接在HTML中使用React，不适用JSX，不使用任何Nodejs工具链。</span>
+  <!-- 用于React渲染组件 -->
+  <div id="greetings"></div>
+
+  <!-- 载入react和react-dom，注意在生产环境要换成*.production.js -->
+  <!-- 截至2020年10月，React的最新大版本号是17 -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+  <!-- 载入React组件 -->
+  <script>
+    'use strict';
+
+    function Greetings(props) {
+      return '你好。';
+      // 或者使用React.createElement(component, props, children)
+      // return React.createElement('div', null, '你好。');
+    }
+
+    const container = document.getElementById('greetings');
+    ReactDOM.render(React.createElement(Greetings), container);
+  </script>
+</body>
+
+</html>
